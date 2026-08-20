@@ -25,16 +25,6 @@ type User struct {
 	UpdatedAt time.Time `json:"updateTime"`
 }
 
-func (u User) StatusForProfileUpdate(current User) int {
-	if u.Status < 0 {
-		return current.Status
-	}
-	if u.Role == "" && u.Status == 0 {
-		return u.Status
-	}
-	return u.Status
-}
-
 type Pet struct {
 	ID                  int64     `json:"petId"`
 	Name                string    `json:"petName"`

@@ -181,8 +181,8 @@ func (s *Service) UpdateUser(ctx context.Context, principal Principal, input Use
 	if role == "" {
 		role = current.Role
 	}
-	status := input.StatusForProfileUpdate(current)
-	if status < 0 {
+	status := input.Status
+	if status == 0 && input.Role == "" && current.Status == 1 {
 		status = current.Status
 	}
 	if principal.Role != RoleAdmin {
